@@ -1,8 +1,11 @@
+
 body {
+  font-family: var(--font-primary), cursive;
+  color: var(--color-body);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--color-black);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +13,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+:root {
+  --color-white: #fff;
+  --color-black: #1f1e19;
+  --color-yellow: #ecd41a;
+  --color-yellow-dark: #c8b416;
+  --color-pink: #c92086;
+  --color-black-light: #6e6a51;
+  --color-black-middle: #414036;
+  --color-black-dark: #2d2c25;
+  --color-grey: #b6b4a2;
+  --color-body: var(--color-white);
+  --carousel-height: 313px;
+  --card-height: 320px;
+  --font-primary: "Lato";
+  --font-secondary: "Sriracha";
 }
