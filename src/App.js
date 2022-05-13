@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import RibbonMenu from "./components/RibbonMenu/RibbonMenu";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
-import { BrowserRouter } from "react-router-dom";
 import Slider from "./components/Slider/Slider";
 import Header from "./components/Header/Header";
 import productsArray from "./components/ProductGrid/ProductsArray";
@@ -20,10 +19,8 @@ function App() {
       <Header />
       <main>
         <Slider />
-        <BrowserRouter>
-          <RibbonMenu filter={filterProduct} />
-          <ProductGrid products={products} />
-        </BrowserRouter>
+        <RibbonMenu filter={filterProduct} />
+        <ProductGrid products={products} />
       </main>
     </div>
   );
