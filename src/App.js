@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./App.css";
 import RibbonMenu from "./components/RibbonMenu/RibbonMenu";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import Slider from "./components/Slider/Slider";
 import Header from "./components/Header/Header";
-import productsArray from "./components/ProductGrid/ProductsArray";
+import {productsArray }from "././Data/Data";
 
 function App() {
-  let [products, setProducts] = useState([]);
+  let [products, setProducts] = useState(productsArray);
+
 
   const filterProduct = (category) => {
     category.id === "all"

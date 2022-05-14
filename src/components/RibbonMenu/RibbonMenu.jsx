@@ -1,70 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./RibbonMenu.module.css";
 import RibbonMenuEl from "./RibbonMenuEl/RibbonMenuEl";
+import arrow from "./angle-icon.svg";
+import { categoriesArray } from "./../../Data/Data";
 
 const RibbonMenu = (props) => {
-  const [categories, setCategories] = useState([
-    {
-      id: "all",
-      name: "All",
-      active: false,
-    },
-    {
-      id: "salads",
-      name: "Salads",
-      active: false,
-    },
-    {
-      id: "soups",
-      name: "Soups",
-      active: false,
-    },
-    {
-      id: "chicken-dishes",
-      name: "Chicken dishes",
-      active: false,
-    },
-    {
-      id: "beef-dishes",
-      name: "Beef dishes",
-      active: false,
-    },
-    {
-      id: "seafood-dishes",
-      name: "Seafood dishes",
-      active: false,
-    },
-    {
-      id: "vegetable-dishes",
-      name: "Vegetable dishes",
-      active: false,
-    },
-    {
-      id: "bits-and-bites",
-      name: "Bits and bites",
-      active: false,
-    },
-    {
-      id: "on-the-side",
-      name: "On the side",
-      active: false,
-    },
-  ]);
+  const [categories, setCategories] = useState(categoriesArray);
+  const [positionNav, setPosition] = useState({ left: 0, visibleRight: true, visibleLeft: false });
+
   const activeClass = (category) => {
-    [...categories].forEach((el) =>  
-    el.id === category.id 
-    ? el.active = true 
-    : el.active=false);
-   
+    categoriesArray.forEach((el) => (el.id === category.id ? (el.active = true) : (el.active = false)));
+    setCategories(categoriesArray);
   };
+
   let RibbonEl = categories.map((category) => (
     <RibbonMenuEl active={activeClass} filter={props.filter} category={category} key={category.id} />
   ));
+
+  const scrollRightNav = () => {
+    let copyState = { ...positionNav, left: positionNav.left - 340, visibleLeft: true };
+    setPosition(copyState);
+    if (copyState.left === -680) {
+      copyState.visibleRight = false;
+    }
+  };
+  const scrollLeftNav = () => {
+    let copyState = { ...positionNav, left: positionNav.left + 340, visibleRight: true };
+    setPosition(copyState);
+    if (copyState.left === 0) {
+      copyState.visibleLeft = false;
+    }
+  };
+
   return (
     <div className={style.container}>
       <h2 className={style.section_heading}>Our Menu</h2>
       <div className={style.ribbon}>
-        <nav className={style.ribbon__inner}>{RibbonEl}</nav>
+        <button
+          className={
+            positionNav.visibleLeft
+              ? `${style.ribbon__arrow} ${style.ribbon__arrow_left} ${style.ribbon__arrow_visible} `
+              : `${style.ribbon__arrow} ${style.ribbon__arrow_left}  `
+          }
+          onClick={scrollLeftNav}
+        >
+          <img src={arrow} alt="icon" />
+        </button>
+        <nav className={style.ribbon__inner} style={{ left: `${positionNav.left}px` }}>
+          {RibbonEl}
+        </nav>
+        <button
+          className={
+            positionNav.visibleRight
+              ? `${style.ribbon__arrow} ${style.ribbon__arrow_right} ${style.ribbon__arrow_visible} `
+              : `${style.ribbon__arrow} ${style.ribbon__arrow_right}  `
+          }
+          onClick={scrollRightNav}
+        >
+          <img src={arrow} alt="icon" />
+        </button>
       </div>
     </div>
   );
