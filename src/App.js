@@ -11,9 +11,10 @@ function App() {
 
 
   const filterProduct = (category) => {
+    let copyArrayProducts = JSON.parse(JSON.stringify(productsArray))
     category.id === "all"
-      ? setProducts(productsArray)
-      : setProducts(productsArray.filter((el) => el.category === category.id));
+      ? setProducts(copyArrayProducts)
+      : setProducts(copyArrayProducts.filter((el) => el.category === category.id));
   };
   return (
     <div className="App">

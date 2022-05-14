@@ -9,8 +9,9 @@ const RibbonMenu = (props) => {
   const [positionNav, setPosition] = useState({ left: 0, visibleRight: true, visibleLeft: false });
 
   const activeClass = (category) => {
-    categoriesArray.forEach((el) => (el.id === category.id ? (el.active = true) : (el.active = false)));
-    setCategories(categoriesArray);
+    let copyArrayCategories = JSON.parse(JSON.stringify(categoriesArray));
+    copyArrayCategories.forEach((el) => (el.id === category.id ? (el.active = true) : (el.active = false)));
+    setCategories(copyArrayCategories);
   };
 
   let RibbonEl = categories.map((category) => (
