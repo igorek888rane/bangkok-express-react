@@ -4,11 +4,12 @@ import style from "./../ProductGrid.module.css";
 
 
 const ProductCard = (props) => {
-return (
+
+  return (
   <div id="holder" className={style.container_half}>
   <div className={style.card}>
     <div className={style.card__top}>
-      <img src={props.product.image} className={style.card__image} alt="product"/>
+      <img src={`http://localhost:5000/` +props.product.image} className={style.card__image} alt="product"/>
       <span className={style.card__price}>€{props.product.price.toFixed(2)}</span>
     </div>
     <div className={style.card__body}>

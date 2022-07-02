@@ -1,21 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {useState} from "react";
 import style from "./RibbonMenu.module.css";
 import RibbonMenuEl from "./RibbonMenuEl/RibbonMenuEl";
 import arrow from "./angle-icon.svg";
-import { categoriesArray } from "./../../Data/Data";
 
-const RibbonMenu = (props) => {
-  const [categories, setCategories] = useState(categoriesArray);
+
+const RibbonMenu = ({activeClass,categories}) => {
+
   const [positionNav, setPosition] = useState({ left: 0, visibleRight: true, visibleLeft: false });
 
-  const activeClass = (category) => {
-    let copyArrayCategories = JSON.parse(JSON.stringify(categories));
-    copyArrayCategories.forEach((el) => (el.id === category.id ? (el.active = true) : (el.active = false)));
-    setCategories(copyArrayCategories);
-  };
 
   let RibbonEl = categories.map((category) => (
-    <RibbonMenuEl active={activeClass} filter={props.filter} category={category} key={category.id} />
+    <RibbonMenuEl active={activeClass}  category={category} key={category.id} />
   ));
 
   const scrollRightNav = () => {

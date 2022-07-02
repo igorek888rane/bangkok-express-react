@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductCard from "./ProductCard/ProductCard";
 import style from "./ProductGrid.module.css";
 
-const ProductGrid = (props) => {
-  
-  let productsCard = props.products.map((product) => (
+const ProductGrid = ({products}) => {
+
+  let productsCard = products.map((product) => (
     <ProductCard product = {product} key = {product.id}/>
   ));
 
