@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import style from "./RibbonMenu.module.css";
 import RibbonMenuEl from "./RibbonMenuEl/RibbonMenuEl";
-import arrow from "./angle-icon.svg";
+import arrow from "../../assets/angle-icon.svg";
 
 
 const RibbonMenu = ({activeClass,categories}) => {

@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import RibbonMenu from "./../RibbonMenu/RibbonMenu";
 import ProductGrid from "./../ProductGrid/ProductGrid";
 import Slider from "./../Slider/Slider";
@@ -6,12 +6,15 @@ import Filter from "../Filter/Filter";
 import {categoriesArray} from "../../Data/Data";
 import ProductService from "../../api/ProductService";
 import Loader from "../Loader/Loader";
+import {useProduct} from "../../hooks/useProduct";
 
 const Main = () => {
 
-    const [products,setProducts] = useState([])
-    const [load,setLoad] = useState(false);
+    const [products, setProducts] = useState([])
+    const [load, setLoad] = useState(false);
     const [categories, setCategories] = useState(categoriesArray);
+    const [checkbox, setCheckbox] = useState({nuts: false, vegeterian: false})
+    const [value,setValue] = useState(2)
 
     const activeClass = (category) => {
         let copyArrayCategories = JSON.parse(JSON.stringify(categories));
@@ -19,37 +22,26 @@ const Main = () => {
         setCategories(copyArrayCategories);
 
     };
-   async function getProduct () {
-       setLoad(true)
+
+    const getProduct = async () => {
+        setLoad(true)
         const data = await ProductService.getAll()
         setProducts(data)
-       setLoad(false)
+        setLoad(false)
     }
 
     useEffect(() => {
-        getProduct()
+            getProduct()
         }, []
     )
 
-    const filterProduct = useMemo(() => {
-        let active = categories.find(el => el.active === true)
-
-        if (active.id === 'all') {
-            return [...products]
-        } else {
-            return [...products].filter(p => p.category === active.id)
-        }
-    }, [products,categories])
-
-
-
-
+        const filterProduct = useProduct(products,categories, checkbox,value)
 
     return (
         <main>
-            <Slider products = {products}/>
+            <Slider products={products}/>
             <RibbonMenu activeClass={activeClass} categories={categories}/>
-            <Filter/>
+            <Filter checkbox={checkbox} setCheckbox={setCheckbox}  value = {value} setValue = {setValue} steps ={[0,1,2,3,4]}/>
             {load
                 ? <Loader/>
                 : <ProductGrid products={filterProduct}/>}

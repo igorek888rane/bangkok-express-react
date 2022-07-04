@@ -1,7 +1,8 @@
 import React, {useRef, useState} from "react";
 import style from "./Slider.module.css";
 import SliderEl from "./SliderEl/SliderEL";
-
+import arrow from './../../assets/angle-icon.svg'
+import arrowLeft from './../../assets/angle-left-icon.svg'
 const Slider = ({products}) => {
 
     const [sliderState, setSlider] = useState({
@@ -53,14 +54,14 @@ const Slider = ({products}) => {
                     onClick={nextSlide}
                     style={{display: sliderState.rightArrow}}
                 >
-                    <img src="https://course-jsbasic.javascript.ru/assets/icons/angle-icon.svg" alt="icon"/>
+                    <img src={arrow} alt="icon"/>
                 </div>
                 <div
                     className={`${style.carousel__arrow}  ${style.carousel__arrow_left}`}
                     onClick={prevSlide}
                     style={{display: sliderState.leftArrow}}
                 >
-                    <img src="https://course-jsbasic.javascript.ru/assets/icons/angle-left-icon.svg" alt="icon"/>
+                    <img src={arrowLeft} alt="icon"/>
                 </div>
 
                 <div ref={carouselRef} className={style.carousel__inner}
