@@ -9,6 +9,7 @@ const RibbonMenu = ({activeClass,categories}) => {
   const [positionNav, setPosition] = useState({ left: 0, visibleRight: true, visibleLeft: false });
 
 
+
   let RibbonEl = categories.map((category) => (
     <RibbonMenuEl active={activeClass}  category={category} key={category.id} />
   ));
@@ -19,6 +20,8 @@ const RibbonMenu = ({activeClass,categories}) => {
     if (copyState.left === -680) {
       copyState.visibleRight = false;
     }
+
+
   };
   const scrollLeftNav = () => {
     let copyState = { ...positionNav, left: positionNav.left + 340, visibleRight: true };
@@ -26,6 +29,8 @@ const RibbonMenu = ({activeClass,categories}) => {
     if (copyState.left === 0) {
       copyState.visibleLeft = false;
     }
+
+
   };
 
   return (
@@ -42,7 +47,7 @@ const RibbonMenu = ({activeClass,categories}) => {
         >
           <img src={arrow} alt="icon" />
         </button>
-        <nav className={style.ribbon__inner} style={{ left: `${positionNav.left}px` }}>
+        <nav  className={style.ribbon__inner} style={{ left: `${positionNav.left}px` }}>
           {RibbonEl}
         </nav>
         <button

@@ -47,7 +47,7 @@ const Main = () => {
 
     return (
         <main>
-            <Slider/>
+            <Slider products = {products}/>
             <RibbonMenu activeClass={activeClass} categories={categories}/>
             <Filter/>
             {load

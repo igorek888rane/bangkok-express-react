@@ -20,6 +20,7 @@
   /* scroll-behavior: smooth; */
   overflow-x: scroll;
   position: absolute;
+  left: 0;
   transition: all 1s ease
 }
 
@@ -33,7 +34,7 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  border: 0px;
+  border: 0;
 }
 
 .ribbon__arrow.ribbon__arrow_left {
@@ -112,11 +113,11 @@ h2,
     padding: 13px;
   }
 
-  .ribbon__arrow {
-    display: none;
-  }
+  /*.ribbon__arrow {*/
+  /*  display: none;*/
+  /*}*/
 
-  .ribbon__arrow.ribbon__arrow_visible {
-    display: none;
-  }
+  /*.ribbon__arrow.ribbon__arrow_visible {*/
+  /*  display: none;*/
+  /*}*/
 }
