@@ -23,8 +23,9 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
     }
     const pointerDown = (e) => {
         e.preventDefault()
+        setDragging('grabbing')
         document.onpointermove = (e) => {
-            setDragging('grabbing')
+
             if (computePosition(e,sliderRef,segment).relativeClick < 0) {
                 computePosition(e,sliderRef,segment).relativeClick = 0;
             }
@@ -34,14 +35,15 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
             setValue(computePosition(e,sliderRef,segment).valueRound)
             setWidth(computePosition(e,sliderRef,segment).reletivePercents)
             setLeft(computePosition(e,sliderRef,segment).reletivePercents)
-            document.onpointerup = (e) => {
-                setDragging('grab')
-                setValue(computePosition(e,sliderRef,segment).valueRound)
-                setWidth(computePosition(e,sliderRef,segment).valuePercents)
-                setLeft(computePosition(e,sliderRef,segment).valuePercents)
-                document.onpointerup = null;
-                document.onpointermove = null;
-            }
+
+        }
+        document.onpointerup = (e) => {
+            setDragging('grab')
+            setValue(computePosition(e,sliderRef,segment).valueRound)
+            setWidth(computePosition(e,sliderRef,segment).valuePercents)
+            setLeft(computePosition(e,sliderRef,segment).valuePercents)
+            document.onpointerup = null;
+            document.onpointermove = null;
         }
     }
 

@@ -11,7 +11,7 @@ const useFilterProductCategories = (products, categories) => {
 
     }, [products, categories]);
 }
-    const useFilterNutsAndVegeterianProduct = (products, categories, checkbox) => {
+const useFilterNutsAndVegeterianProduct = (products, categories, checkbox) => {
     const filterProductCategories = useFilterProductCategories(products, categories)
     const filterNutsProduct = useMemo(() => {
         if (checkbox.nuts) {
