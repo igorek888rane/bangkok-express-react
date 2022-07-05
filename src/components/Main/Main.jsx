@@ -16,9 +16,7 @@ const Main = () => {
     const [checkbox, setCheckbox] = useState({nuts: false, vegeterian: false})
     const [value, setValue] = useState(2)
 
-
-
-    const getProduct = async () => {
+    const fetchProduct = async () => {
         setLoad(true)
         const data = await ProductService.getAll()
         setProducts(data)
@@ -26,7 +24,7 @@ const Main = () => {
     }
 
     useEffect(() => {
-            getProduct()
+            fetchProduct()
         }, []
     )
 
@@ -42,7 +40,7 @@ const Main = () => {
                     setCheckbox={setCheckbox}
                     value={value}
                     setValue={setValue}
-                    steps={new Array(5)}/>
+                    steps={[0,1,2,3,4]}/>
             {load
                 ? <Loader/>
                 : <ProductGrid products={filterProduct}/>}

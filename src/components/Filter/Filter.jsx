@@ -9,6 +9,7 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
     const defaultWidth = ((value / segment) * 100)
 
 
+
     const [left, setLeft] = useState(defaultLeft)
     const [width, setWidth] = useState(defaultWidth)
     const [dragging, setDragging] = useState('grab')
@@ -25,17 +26,9 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
         e.preventDefault()
         setDragging('grabbing')
         document.onpointermove = (e) => {
-
-            if (computePosition(e,sliderRef,segment).relativeClick < 0) {
-                computePosition(e,sliderRef,segment).relativeClick = 0;
-            }
-            if (computePosition(e,sliderRef,segment).relativeClick > 1) {
-                computePosition(e,sliderRef,segment).relativeClick = 1;
-            }
             setValue(computePosition(e,sliderRef,segment).valueRound)
             setWidth(computePosition(e,sliderRef,segment).reletivePercents)
             setLeft(computePosition(e,sliderRef,segment).reletivePercents)
-
         }
         document.onpointerup = (e) => {
             setDragging('grab')
@@ -67,7 +60,7 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
                                     <div className={style.slider__progress} style={{width: `${width}%`}}></div>
 
                                     <div className={style.slider__steps}>
-                                        {steps.map(el => <span  key={el}></span>)}
+                                        {steps.map(el=><span key={el}></span>)}
                                     </div>
                                 </div>
                             </div>
