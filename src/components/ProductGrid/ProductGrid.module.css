@@ -1,9 +1,6 @@
-.container {
-  max-width: 988px;
-  margin: 0 auto;
-}
+
 .container_half {
-  max-width: 494px;
+  max-width: 767px;
 }
 .products_grid .products_grid__inner {
   display: grid;

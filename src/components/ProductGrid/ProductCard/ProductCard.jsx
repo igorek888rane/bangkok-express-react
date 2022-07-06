@@ -1,20 +1,21 @@
 import React from "react";
 import style from "./../ProductGrid.module.css";
+import {addProduct} from "../../../utils/addProduct";
 
 
 
-const ProductCard = (props) => {
+const ProductCard = ({product,cartItem,setCartItem}) => {
 
   return (
   <div id="holder" className={style.container_half}>
   <div className={style.card}>
     <div className={style.card__top}>
-      <img src={`http://localhost:5000/` +props.product.image} className={style.card__image} alt="product"/>
-      <span className={style.card__price}>€{props.product.price.toFixed(2)}</span>
+      <img src={`http://localhost:5000/` +product.image} className={style.card__image} alt="product"/>
+      <span className={style.card__price}>€{product.price.toFixed(2)}</span>
     </div>
     <div className={style.card__body}>
-      <div className={style.card__title}>{props.product.name}</div>
-      <button type="button" className={style.card__button}>
+      <div className={style.card__title}>{product.name}</div>
+      <button type="button" className={style.card__button} onClick={()=>addProduct(product,cartItem,setCartItem)}>
         <img src="https://course-jsbasic.javascript.ru/assets/icons/plus-icon.svg" alt="icon"/>
       </button>
     </div>

@@ -4,7 +4,7 @@ import RibbonMenuEl from "./RibbonMenuEl/RibbonMenuEl";
 import arrow from "../../assets/angle-icon.svg";
 
 
-const RibbonMenu = ({ categories,setCategories}) => {
+const RibbonMenu = ({categories, setCategories}) => {
 
     const [positionNav, setPosition] = useState({left: 0, visibleRight: true, visibleLeft: false});
 
@@ -19,24 +19,24 @@ const RibbonMenu = ({ categories,setCategories}) => {
     ));
 
     const scrollRightNav = () => {
-            let copyState = {...positionNav, left: positionNav.left - 265, visibleLeft: true};
-            setPosition(copyState);
-            if (copyState.left === -530) {
-                copyState.visibleRight = false;
-            }
+        let copyState = {...positionNav, left: positionNav.left - 265, visibleLeft: true};
+        setPosition(copyState);
+        if (copyState.left === -530) {
+            copyState.visibleRight = false;
+        }
     };
     const scrollLeftNav = () => {
-            let copyState = {...positionNav, left: positionNav.left + 265, visibleRight: true};
-            setPosition(copyState);
-            if (copyState.left === 0) {
-                copyState.visibleLeft = false;
-            }
+        let copyState = {...positionNav, left: positionNav.left + 265, visibleRight: true};
+        setPosition(copyState);
+        if (copyState.left === 0) {
+            copyState.visibleLeft = false;
+        }
     };
 
     return (
-        <div className={style.container}  >
+        <>
             <h2 className={style.section_heading}>Our Menu</h2>
-            <div className={style.ribbon} >
+            <div className={style.ribbon}>
                 <button
                     className={
                         positionNav.visibleLeft
@@ -47,7 +47,7 @@ const RibbonMenu = ({ categories,setCategories}) => {
                 >
                     <img src={arrow} alt="icon"/>
                 </button>
-                <nav  className={style.ribbon__inner} style={{left: `${positionNav.left}px`}}>
+                <nav className={style.ribbon__inner} style={{left: `${positionNav.left}px`}}>
                     {RibbonEl}
                 </nav>
                 <button
@@ -61,7 +61,7 @@ const RibbonMenu = ({ categories,setCategories}) => {
                     <img src={arrow} alt="icon"/>
                 </button>
             </div>
-        </div>
+        </>
     );
 };
 
