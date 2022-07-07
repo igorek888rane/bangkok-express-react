@@ -4,28 +4,28 @@ import {addProduct} from "../../../utils/productCart";
 import {CartContext} from "../../../context";
 
 
-
 const ProductCard = ({product}) => {
 
-  const {cartItem,setCartItem} = useContext(CartContext)
+    const {cartItem, setCartItem, setShake} = useContext(CartContext)
 
-  return (
-  <div id="holder" className={style.container_half}>
-  <div className={style.card}>
-    <div className={style.card__top}>
-      <img src={`http://localhost:5000/` +product.image} className={style.card__image} alt="product"/>
-      <span className={style.card__price}>€{product.price.toFixed(2)}</span>
-    </div>
-    <div className={style.card__body}>
-      <div className={style.card__title}>{product.name}</div>
-      <button type="button" className={style.card__button} onClick={()=>addProduct(product,cartItem,setCartItem)}>
-        <img src="https://course-jsbasic.javascript.ru/assets/icons/plus-icon.svg" alt="icon"/>
-      </button>
-    </div>
-  </div>
-</div>
- 
-)
+    return (
+        <div id="holder" className={style.container_half}>
+            <div className={style.card}>
+                <div className={style.card__top}>
+                    <img src={`http://localhost:5000/` + product.image} className={style.card__image} alt="product"/>
+                    <span className={style.card__price}>€{product.price.toFixed(2)}</span>
+                </div>
+                <div className={style.card__body}>
+                    <div className={style.card__title}>{product.name}</div>
+                    <button type="button" className={style.card__button}
+                            onClick={() => addProduct(product, cartItem, setCartItem, setShake)}>
+                        <img src="https://course-jsbasic.javascript.ru/assets/icons/plus-icon.svg" alt="icon"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    )
 };
 
 export default ProductCard;

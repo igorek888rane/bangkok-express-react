@@ -47,7 +47,7 @@ const CartForm = () => {
                        onChange={formik.handleChange}/>
             </div>
             <div className={style.cart_buttons}>
-                <div className={`${style.cart_buttons__button} ${style.btn_group}`}>
+                <div className={style.btn_group}>
                     <div className={style.cart_buttons__info}>
                         <span className={style.cart_buttons__info_text}>total</span>
                         <span className={style.cart_buttons__info_price}>{`€${getTotalPrice(cartItem).toFixed(2)}`}</span>

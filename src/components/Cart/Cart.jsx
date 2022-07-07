@@ -3,15 +3,15 @@ import {CartContext} from "../../context";
 import CartProduct from "./CartProduct";
 import CartForm from "./CartForm";
 
-const Cart = () => {
+const Cart = ({setActive}) => {
 
     const {cartItem} = useContext(CartContext)
 
     return (
-        <>
-            {cartItem.map(product => <CartProduct key={product.id} product={product}/>)}
+        <div>
+            {cartItem.map(product => <CartProduct key={product.id} product={product} setActive ={setActive}/>)}
             <CartForm/>
-        </>
+        </div>
     );
 };
 

@@ -9,22 +9,26 @@ import {CartContext} from "./context";
 function App() {
     const [modalActive, setModalActive] = useState(false)
     const [cartItem, setCartItem] = useState([])
+    const [shake, setShake] = useState(false)
+
 
     return (
-      <CartContext.Provider value={{
-          cartItem,
-          setCartItem
-      }}>
-          <div className='App'>
-              <Header setActive={setModalActive}/>
-              <Main/>
-              {
-                  modalActive
-                      ? <Modal active={modalActive} setActive={setModalActive} />
-                      : null
-              }
-          </div>
-      </CartContext.Provider>
+        <CartContext.Provider value={{
+            cartItem,
+            setCartItem,
+            shake,
+            setShake
+        }}>
+            <div className='App'>
+                <Header setActive={setModalActive}/>
+                <Main/>
+                {
+                    modalActive
+                        ? <Modal active={modalActive} setActive={setModalActive}/>
+                        : null
+                }
+            </div>
+        </CartContext.Provider>
 
     );
 }

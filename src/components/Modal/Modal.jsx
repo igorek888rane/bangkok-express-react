@@ -13,7 +13,7 @@ const Modal = ({setActive}) => {
     }
 
     return (
-        <div className={style.modal} >
+        <div className={style.modal}>
             <div className={style.modal__overlay} onClick={() => {
                 document.body.className = ''
                 setActive(false)
@@ -31,7 +31,7 @@ const Modal = ({setActive}) => {
                     </h3>
                 </div>
                 <div className={style.modal__body}>
-                    <Cart/>
+                    <Cart setActive={setActive}/>
                 </div>
             </div>
         </div>

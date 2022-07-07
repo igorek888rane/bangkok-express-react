@@ -4,7 +4,7 @@ import {updateProduct} from "../../utils/productCart";
 import {useContext} from "react";
 import {CartContext} from "../../context";
 
-const CartProduct = ({product}) => {
+const CartProduct = ({product,setActive}) => {
 
     const {cartItem,setCartItem} = useContext(CartContext)
 
@@ -19,7 +19,7 @@ const CartProduct = ({product}) => {
                     <div className={style.cart_counter}>
                         <button type="button"
                                 className={`${style.cart_counter__button}`}
-                                onClick={()=>updateProduct(product,-1,cartItem,setCartItem)}>
+                                onClick={()=>updateProduct(product,-1,cartItem,setCartItem,setActive)}>
                             <img src="https://course-jsbasic.javascript.ru/assets/icons/square-minus-icon.svg" alt="minus"/>
                         </button>
                         <span className={style.cart_counter__count}>{product.count}</span>

@@ -5,7 +5,8 @@ import {CartContext} from "../../context";
 
 const CartIcon = React.forwardRef(({positionCart, setActive}, ref) => {
 
-    const {cartItem} = useContext(CartContext)
+    const {cartItem, shake} = useContext(CartContext)
+
     return (
         <div onClick={() => {
             document.body.className = 'is-modal-open'
@@ -13,7 +14,7 @@ const CartIcon = React.forwardRef(({positionCart, setActive}, ref) => {
         }}
              ref={ref}
              style={positionCart}
-             className={cartItem.length ? `${style.cart_icon} ${style.cart_icon_visible}` : `${style.cart_icon}`}>
+             className={cartItem.length ? `${style.cart_icon} ${style.cart_icon_visible} ${shake ? `${style.shake}` : ''}` : `${style.cart_icon}`}>
             <div className={style.cart_icon__inner}>
                 <span className={style.cart_icon__count}>{getTotalCount(cartItem)}</span>
                 <span className={style.cart_icon__price}>{`€${getTotalPrice(cartItem).toFixed(2)}`}</span>
