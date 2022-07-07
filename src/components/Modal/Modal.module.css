@@ -40,7 +40,7 @@
     padding: 0 80px 64px;
 }
 
-.modal__body-inner {
+.modal__body_inner {
     background-color: var(--color-black-dark);
     text-align: center;
     padding: 40px 33px;
@@ -52,7 +52,7 @@
     font-style: italic;
 }
 
-.modal__body-inner img {
+.modal__body_inner img {
     max-width: 100%;
     margin-top: 20px;
 }

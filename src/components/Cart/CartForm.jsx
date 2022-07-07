@@ -1,24 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from "./Cart.module.css";
 import {getTotalPrice} from "../../utils/productCart";
 import {useFormik} from "formik";
 import {useContext} from "react";
-import {CartContext} from "../../context";
+import {Context} from "../../context";
+import ProductService from "../../api/ProductService";
+import CartResponse from "./CartResponse";
 
 const CartForm = () => {
+
+    const [load, setLoad] = useState(false)
+    const {cartItem, setModal, setCartItem, setModalActive} = useContext(Context)
+
+
     const formik = useFormik({
-        initialValues :{
-            name:'Igor Tsuker',
-            email:'Igor@gmail.com',
-            tel:'+79057777777',
-            address:'Pyatigorsk',
+        initialValues: {
+            name: 'Igor Tsuker',
+            email: 'Igor@gmail.com',
+            tel: '+79057777777',
+            address: 'Pyatigorsk',
 
         },
-        onSubmit :values => {
-            console.log(values)
+        onSubmit: async values => {
+            setLoad(true)
+            const response = await ProductService.sendForm(values)
+            if (response.status === 200) {
+                setModal({title: 'Success!', body: <CartResponse setActive={setModalActive}/>})
+                setCartItem([])
+            }
+            setLoad(false)
         }
+
     })
-    const {cartItem} = useContext(CartContext)
+
 
     return (
         <form onSubmit={formik.handleSubmit} className={style.cart_form}>
@@ -50,9 +64,11 @@ const CartForm = () => {
                 <div className={style.btn_group}>
                     <div className={style.cart_buttons__info}>
                         <span className={style.cart_buttons__info_text}>total</span>
-                        <span className={style.cart_buttons__info_price}>{`€${getTotalPrice(cartItem).toFixed(2)}`}</span>
+                        <span
+                            className={style.cart_buttons__info_price}>{`€${getTotalPrice(cartItem).toFixed(2)}`}</span>
                     </div>
-                    <button type="submit" className={`${style.cart_buttons__button} ${style.btn_group__button} ${style.button}`}>
+                    <button type="submit"
+                            className={`${style.cart_buttons__button} ${style.btn_group__button} ${style.button} ${load ? style.is_loading : ''}`}>
                         order
                     </button>
                 </div>

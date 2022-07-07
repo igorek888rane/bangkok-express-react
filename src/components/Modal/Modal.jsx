@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import style from './Modal.module.css'
-import Cart from "../Cart/Cart";
+import {Context} from "../../context";
 
 const Modal = ({setActive}) => {
 
@@ -11,7 +11,7 @@ const Modal = ({setActive}) => {
             document.onkeydown = null
         }
     }
-
+    const {modal} = useContext(Context)
     return (
         <div className={style.modal}>
             <div className={style.modal__overlay} onClick={() => {
@@ -27,11 +27,11 @@ const Modal = ({setActive}) => {
                         <img src="https://course-jsbasic.javascript.ru/assets/icons/cross-icon.svg" alt="close-icon"/>
                     </button>
                     <h3 className={style.modal__title}>
-                        YOUR ORDER
+                        {modal.title}
                     </h3>
                 </div>
                 <div className={style.modal__body}>
-                    <Cart setActive={setActive}/>
+                    {modal.body}
                 </div>
             </div>
         </div>

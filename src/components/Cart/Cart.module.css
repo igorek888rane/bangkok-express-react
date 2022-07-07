@@ -19,11 +19,11 @@
     height: 18px;
 }
 
-.cart_buttons__button.is_loading:after {
-    position: absolute;
-    top: 22px;
-    right: 16px;
-}
+/*.cart_buttons__button.is_loading:after{*/
+/*    position: absolute;*/
+/*    top: 2px;*/
+/*    right: 5px;*/
+/*}*/
 
 .cart_buttons__info {
     padding: 11px 14px 13px;
@@ -72,6 +72,7 @@
     line-height: 1.2;
     color: var(--color-body);
 }
+
 .cart_form {
     padding: 20px 27px 32px;
     background-color: var(--color-black-dark);
@@ -88,7 +89,7 @@
     text-align: center;
 }
 
-.cart_form__group+.cart_form__group {
+.cart_form__group + .cart_form__group {
     margin-top: 16px;
 }
 
@@ -133,14 +134,15 @@
         display: block;
     }
 
-    .cart_form__group.cart_form__group_row>.cart_form__input {
+    .cart_form__group.cart_form__group_row > .cart_form__input {
         margin-top: 16px;
     }
 
-    .cart_form__group.cart_form__group_row>.cart_form__input:first-child {
+    .cart_form__group.cart_form__group_row > .cart_form__input:first-child {
         margin-top: 0;
     }
 }
+
 .cart_product {
     display: flex;
     flex-direction: row;
@@ -244,6 +246,7 @@
         padding: 32px 24px 0;
     }
 }
+
 .button {
     height: 64px;
     padding: 19px 24px;
@@ -279,13 +282,23 @@
     content: "";
     width: 24px;
     height: 24px;
-    margin-left: 12px;
-    position: relative;
+    margin-left: 15px;
+    position: absolute;
+    top: 23px;
     background: url(https://course-jsbasic.javascript.ru/assets/icons/loader-icon-sm.svg) center no-repeat;
     background-size: cover;
     vertical-align: bottom;
     display: inline-block;
     animation: loadingSpinner 1s infinite linear;
+}
+
+@keyframes loadingSpinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .btn_group {

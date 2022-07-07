@@ -17,7 +17,6 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
     const sliderRef = useRef(0)
 
 
-
     const sliderClick = (e) => {
 
         setValue(computePosition(e, sliderRef, segment).valueRound)
@@ -25,24 +24,23 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
         setLeft(computePosition(e, sliderRef, segment).valuePercents)
     }
 
-      const pointerDown =(e)=>{
-          e.preventDefault()
-          setDragging('grabbing')
-              document.onpointermove = (e) => {
-                  setValue(computePosition(e, sliderRef, segment).valueRound)
-                  setWidth(computePosition(e, sliderRef, segment).reletivePercents)
-                  setLeft(computePosition(e, sliderRef, segment).reletivePercents)
-              }
-              document.onpointerup = (e) => {
-                  setDragging('grab')
-                  setValue(computePosition(e, sliderRef, segment).valueRound)
-                  setWidth(computePosition(e, sliderRef, segment).valuePercents)
-                  setLeft(computePosition(e, sliderRef, segment).valuePercents)
-                  document.onpointerup = null;
-                  document.onpointermove = null;
-              }
-      }
-
+    const pointerDown = (e) => {
+        e.preventDefault()
+        setDragging('grabbing')
+        document.onpointermove = (e) => {
+            setValue(computePosition(e, sliderRef, segment).valueRound)
+            setWidth(computePosition(e, sliderRef, segment).reletivePercents)
+            setLeft(computePosition(e, sliderRef, segment).reletivePercents)
+        }
+        document.onpointerup = (e) => {
+            setDragging('grab')
+            setValue(computePosition(e, sliderRef, segment).valueRound)
+            setWidth(computePosition(e, sliderRef, segment).valuePercents)
+            setLeft(computePosition(e, sliderRef, segment).valuePercents)
+            document.onpointerup = null;
+            document.onpointermove = null;
+        }
+    }
 
 
     return (

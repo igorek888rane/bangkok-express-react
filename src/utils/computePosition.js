@@ -1,4 +1,4 @@
-export const computePosition = (e, sliderRef, segment) =>{
+export const computePosition = (e, sliderRef, segment) => {
     let coordinateClick = e.clientX - sliderRef.current.getBoundingClientRect().left
     let relativeClick = coordinateClick / sliderRef.current.offsetWidth
     if (relativeClick < 0) {

@@ -3,6 +3,7 @@ import style from "./Slider.module.css";
 import SliderEl from "./SliderEl/SliderEL";
 import arrow from './../../assets/angle-icon.svg'
 import arrowLeft from './../../assets/angle-left-icon.svg'
+
 const Slider = ({products}) => {
 
     const [sliderState, setSlider] = useState({
@@ -18,7 +19,7 @@ const Slider = ({products}) => {
     const carouselMove = carouselRef.current.offsetWidth
 
 
-    const sliderEl = productsSlider.map((slide) => <SliderEl slide={slide} key={slide.id} />);
+    const sliderEl = productsSlider.map((slide) => <SliderEl slide={slide} key={slide.id}/>);
 
     const nextSlide = () => {
         let stateNext = {
@@ -48,27 +49,27 @@ const Slider = ({products}) => {
 
     return (
 
-            <div className={style.carousel}>
-                <div
-                    className={`${style.carousel__arrow}  ${style.carousel__arrow_right}`}
-                    onClick={nextSlide}
-                    style={{display: sliderState.rightArrow}}
-                >
-                    <img src={arrow} alt="icon"/>
-                </div>
-                <div
-                    className={`${style.carousel__arrow}  ${style.carousel__arrow_left}`}
-                    onClick={prevSlide}
-                    style={{display: sliderState.leftArrow}}
-                >
-                    <img src={arrowLeft} alt="icon"/>
-                </div>
-
-                <div ref={carouselRef} className={style.carousel__inner}
-                     style={{transform: `translateX(-${sliderState.transform}px)`}}>
-                    {sliderEl}
-                </div>
+        <div className={style.carousel}>
+            <div
+                className={`${style.carousel__arrow}  ${style.carousel__arrow_right}`}
+                onClick={nextSlide}
+                style={{display: sliderState.rightArrow}}
+            >
+                <img src={arrow} alt="icon"/>
             </div>
+            <div
+                className={`${style.carousel__arrow}  ${style.carousel__arrow_left}`}
+                onClick={prevSlide}
+                style={{display: sliderState.leftArrow}}
+            >
+                <img src={arrowLeft} alt="icon"/>
+            </div>
+
+            <div ref={carouselRef} className={style.carousel__inner}
+                 style={{transform: `translateX(-${sliderState.transform}px)`}}>
+                {sliderEl}
+            </div>
+        </div>
 
     );
 };

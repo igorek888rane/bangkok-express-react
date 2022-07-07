@@ -3,21 +3,25 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Modal from "./components/Modal/Modal";
-import {CartContext} from "./context";
+import {Context} from "./context";
 
 
 function App() {
     const [modalActive, setModalActive] = useState(false)
     const [cartItem, setCartItem] = useState([])
     const [shake, setShake] = useState(false)
+    const [modal, setModal] = useState({title: '', body: ''})
 
 
     return (
-        <CartContext.Provider value={{
+        <Context.Provider value={{
             cartItem,
             setCartItem,
             shake,
-            setShake
+            setShake,
+            setModalActive,
+            modal,
+            setModal
         }}>
             <div className='App'>
                 <Header setActive={setModalActive}/>
@@ -28,7 +32,7 @@ function App() {
                         : null
                 }
             </div>
-        </CartContext.Provider>
+        </Context.Provider>
 
     );
 }

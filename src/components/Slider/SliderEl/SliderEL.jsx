@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import style from "./../Slider.module.css";
 import {addProduct} from "../../../utils/productCart";
-import {CartContext} from "../../../context";
+import {Context} from "../../../context";
 
 const SliderEl = ({slide}) => {
-    const {cartItem, setCartItem, setShake} = useContext(CartContext)
+    const {cartItem, setCartItem, setShake} = useContext(Context)
     return (
         <div className={style.carousel__slide} data-id={slide.id}>
             <img src={'http://localhost:5000/' + slide.imageForSlider} className={style.carousel__img} alt="slide"/>

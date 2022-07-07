@@ -4,10 +4,10 @@ import style from './Loader.module.css'
 const Loader = () => {
     return (
         <>
-        <div className={style.loader}>
+            <div className={style.loader}>
 
-        </div>
-          <h1>Loading</h1>
+            </div>
+            <h1>Loading</h1>
         </>
     );
 };
