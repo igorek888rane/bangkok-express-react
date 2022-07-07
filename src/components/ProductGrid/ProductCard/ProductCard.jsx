@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import style from "./../ProductGrid.module.css";
-import {addProduct} from "../../../utils/addProduct";
+import {addProduct} from "../../../utils/productCart";
+import {CartContext} from "../../../context";
 
 
 
-const ProductCard = ({product,cartItem,setCartItem}) => {
+const ProductCard = ({product}) => {
+
+  const {cartItem,setCartItem} = useContext(CartContext)
 
   return (
   <div id="holder" className={style.container_half}>

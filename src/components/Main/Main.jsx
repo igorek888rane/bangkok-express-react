@@ -9,7 +9,7 @@ import Loader from "../Loader/Loader";
 import {useProduct} from "../../hooks/useProduct";
 
 
-const Main = ({cartItem,setCartItem}) => {
+const Main = () => {
 
     const [products, setProducts] = useState([])
     const [load, setLoad] = useState(false);
@@ -34,9 +34,7 @@ const Main = ({cartItem,setCartItem}) => {
     return (
         <main>
             <div className={'container'}>
-                <Slider products={products}
-                        cartItem ={cartItem}
-                        setCartItem={setCartItem}/>
+                <Slider products={products}/>
                 <RibbonMenu
                     setCategories={setCategories}
                     categories={categories}/>
@@ -47,9 +45,9 @@ const Main = ({cartItem,setCartItem}) => {
                         steps={[0, 1, 2, 3, 4]}/>
                 {load
                     ? <Loader/>
-                    : <ProductGrid products={filterProduct}
-                                   cartItem={cartItem}
-                                   setCartItem ={setCartItem}/>}
+                    : <ProductGrid products={filterProduct}/>
+                }
+
             </div>
 
         </main>

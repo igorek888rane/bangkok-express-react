@@ -3,7 +3,7 @@ import style from "./Slider.module.css";
 import SliderEl from "./SliderEl/SliderEL";
 import arrow from './../../assets/angle-icon.svg'
 import arrowLeft from './../../assets/angle-left-icon.svg'
-const Slider = ({products,setCartItem,cartItem}) => {
+const Slider = ({products}) => {
 
     const [sliderState, setSlider] = useState({
         transform: 0,
@@ -18,7 +18,7 @@ const Slider = ({products,setCartItem,cartItem}) => {
     const carouselMove = carouselRef.current.offsetWidth
 
 
-    const sliderEl = productsSlider.map((slide) => <SliderEl slide={slide} key={slide.id} cartItem={cartItem} setCartItem = {setCartItem}/>);
+    const sliderEl = productsSlider.map((slide) => <SliderEl slide={slide} key={slide.id} />);
 
     const nextSlide = () => {
         let stateNext = {

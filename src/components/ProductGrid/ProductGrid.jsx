@@ -2,10 +2,10 @@ import React from "react";
 import ProductCard from "./ProductCard/ProductCard";
 import style from "./ProductGrid.module.css";
 
-const ProductGrid = ({products,cartItem,setCartItem}) => {
+const ProductGrid = ({products}) => {
 
   let productsCard = products.map((product) => (
-    <ProductCard product = {product} key = {product.id} cartItem={cartItem} setCartItem={setCartItem}/>
+    <ProductCard product = {product} key = {product.id} />
   ));
 
   return (

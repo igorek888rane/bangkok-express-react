@@ -13,11 +13,11 @@ const Modal = ({setActive}) => {
     }
 
     return (
-        <div className={style.modal} onClick={() => {
-            document.body.className = ''
-            setActive(false)
-        }}>
-            <div className={style.modal__overlay}></div>
+        <div className={style.modal} >
+            <div className={style.modal__overlay} onClick={() => {
+                document.body.className = ''
+                setActive(false)
+            }}></div>
             <div className={style.modal__inner} onClick={(e) => e.stopPropagation()}>
                 <div className={style.modal__header}>
                     <button type="button" className={style.modal__close} onClick={() => {

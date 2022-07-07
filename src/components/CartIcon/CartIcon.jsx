@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import style from './CartIcon.module.css'
+import {getTotalCount, getTotalPrice} from "../../utils/productCart";
+import {CartContext} from "../../context";
 
-const CartIcon = React.forwardRef(({positionCart,setActive,cartItem}, ref) => {
-    // let totalPrice = cartItem.reduce((sum,current) =>sum + current )
+const CartIcon = React.forwardRef(({positionCart, setActive}, ref) => {
 
+    const {cartItem} = useContext(CartContext)
     return (
-        <div onClick={()=> {
+        <div onClick={() => {
             document.body.className = 'is-modal-open'
             setActive(true)
         }}
-            ref={ref}
-            style={positionCart}
-            className={cartItem.length ?`${style.cart_icon} ${style.cart_icon_visible}`:`${style.cart_icon}`}>
-            <div  className={style.cart_icon__inner}>
-                <span className={style.cart_icon__count}>{cartItem.length}</span>
-                <span className={style.cart_icon__price}></span>
+             ref={ref}
+             style={positionCart}
+             className={cartItem.length ? `${style.cart_icon} ${style.cart_icon_visible}` : `${style.cart_icon}`}>
+            <div className={style.cart_icon__inner}>
+                <span className={style.cart_icon__count}>{getTotalCount(cartItem)}</span>
+                <span className={style.cart_icon__price}>{`€${getTotalPrice(cartItem).toFixed(2)}`}</span>
             </div>
         </div>
     );
