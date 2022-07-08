@@ -9,7 +9,7 @@ const CartResponse = ({setActive}) => {
                 <p>
                     Order successful! Your order is being cooked :) <br/>
                     We’ll notify you about delivery time shortly.<br/>
-                    <img src="https://course-jsbasic.javascript.ru/assets/delivery.gif" alt=''/>
+                    <img src="https://bangkok-express.herokuapp.com/assets/delivery.gif" alt=''/>
                 </p>
             </div>
             <div className={style.modal__buttons}>

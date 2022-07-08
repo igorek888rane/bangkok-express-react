@@ -24,7 +24,7 @@ const Modal = ({setActive}) => {
                         document.body.className = ''
                         setActive(false)
                     }}>
-                        <img src="https://course-jsbasic.javascript.ru/assets/icons/cross-icon.svg" alt="close-icon"/>
+                        <img src="https://bangkok-express.herokuapp.com/assets/cross-icon.svg" alt="close-icon"/>
                     </button>
                     <h3 className={style.modal__title}>
                         {modal.title}

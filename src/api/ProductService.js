@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default  class ProductService{
   static async getAll(){
-      const response =  await axios.get('http://localhost:5000/api/product');
+      const response =  await axios.get('https://bangkok-express.herokuapp.com/api/product');
         return response.data
     }
     static async sendForm(data){

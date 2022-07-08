@@ -18,7 +18,7 @@
 }
 
 .cart_icon__inner {
-    background: url(https://course-jsbasic.javascript.ru/assets/icons/cart-icon.svg) center no-repeat;
+    background: url(https://bangkok-express.herokuapp.com/assets/cart-icon.svg) center no-repeat;
     background-size: cover;
     position: relative;
     width: 100%;

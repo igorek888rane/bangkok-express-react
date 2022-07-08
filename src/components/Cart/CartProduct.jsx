@@ -11,7 +11,7 @@ const CartProduct = ({product, setActive}) => {
     return (
         <div className={style.cart_product}>
             <div className={style.cart_product__img}>
-                <img src={`http://localhost:5000/` + product.image} alt="product"/>
+                <img src={`https://bangkok-express.herokuapp.com/` + product.image} alt="product"/>
             </div>
             <div className={style.cart_product__info}>
                 <div className={style.cart_product__title}>{product.name}</div>
@@ -20,14 +20,14 @@ const CartProduct = ({product, setActive}) => {
                         <button type="button"
                                 className={`${style.cart_counter__button}`}
                                 onClick={() => updateProduct(product, -1, cartItem, setCartItem, setActive)}>
-                            <img src="https://course-jsbasic.javascript.ru/assets/icons/square-minus-icon.svg"
+                            <img src="https://bangkok-express.herokuapp.com/assets/square-minus-icon.svg"
                                  alt="minus"/>
                         </button>
                         <span className={style.cart_counter__count}>{product.count}</span>
                         <button type="button"
                                 className={`${style.cart_counter__button}`}
                                 onClick={() => updateProduct(product, 1, cartItem, setCartItem)}>
-                            <img src="https://course-jsbasic.javascript.ru/assets/icons/square-plus-icon.svg"
+                            <img src="https://bangkok-express.herokuapp.com/assets/square-plus-icon.svg"
                                  alt="plus"/>
                         </button>
                     </div>

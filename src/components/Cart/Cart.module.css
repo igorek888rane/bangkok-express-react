@@ -13,7 +13,7 @@
     right: 24px;
     top: 50%;
     transform: translate(0, -50%);
-    background: url("https://course-jsbasic.javascript.ru/assets/icons/angle-sm-icon.svg") center no-repeat;
+    background: url("https://bangkok-express.herokuapp.com/assets/angle-sm-icon.svg") center no-repeat;
     background-size: cover;
     width: 10px;
     height: 18px;
@@ -285,7 +285,7 @@
     margin-left: 15px;
     position: absolute;
     top: 23px;
-    background: url(https://course-jsbasic.javascript.ru/assets/icons/loader-icon-sm.svg) center no-repeat;
+    background: url(https://bangkok-express.herokuapp.com/assets/loader-icon-sm.svg) center no-repeat;
     background-size: cover;
     vertical-align: bottom;
     display: inline-block;
