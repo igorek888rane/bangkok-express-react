@@ -16,31 +16,35 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
 
     const sliderRef = useRef(0)
 
-
     const sliderClick = (e) => {
-
         setValue(computePosition(e, sliderRef, segment).valueRound)
         setWidth(computePosition(e, sliderRef, segment).valuePercents)
         setLeft(computePosition(e, sliderRef, segment).valuePercents)
     }
 
-    const pointerDown = (e) => {
-        e.preventDefault()
-        setDragging('grabbing')
+    const moveUp =()=>{
         document.onpointermove = (e) => {
+            e.preventDefault()
             setValue(computePosition(e, sliderRef, segment).valueRound)
             setWidth(computePosition(e, sliderRef, segment).reletivePercents)
             setLeft(computePosition(e, sliderRef, segment).reletivePercents)
         }
         document.onpointerup = (e) => {
+            document.onpointerup = null;
+            document.onpointermove = null;
             setDragging('grab')
             setValue(computePosition(e, sliderRef, segment).valueRound)
             setWidth(computePosition(e, sliderRef, segment).valuePercents)
             setLeft(computePosition(e, sliderRef, segment).valuePercents)
-            document.onpointerup = null;
-            document.onpointermove = null;
         }
     }
+
+    const pointerDown = (e) => {
+        e.preventDefault()
+        setDragging('grabbing')
+        moveUp()
+    }
+
 
 
     return (
@@ -52,10 +56,9 @@ const Filter = ({checkbox, setCheckbox, value, setValue, steps}) => {
                         <div className={style.container}>
                             <div className={style.slider} ref={sliderRef} onClick={(e) => sliderClick(e)}>
                                 <div className={style.slider__thumb}
-                                     style={{left: `${left}%`, cursor: `${dragging}`}}
-                                     onPointerDown={pointerDown}
-
-                                >
+                                     style={{left: `${left}%`, cursor: `${dragging} `}}
+                                     onDragStart={()=>false}
+                                     onPointerDown={pointerDown}>
                                     <span className={style.slider__value}>{value}</span>
                                 </div>
 
