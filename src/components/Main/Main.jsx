@@ -42,7 +42,7 @@ const Main = () => {
                         setCheckbox={setCheckbox}
                         value={value}
                         setValue={setValue}
-                        steps={[0, 1, 2, 3, 4]}/>
+                        />
                 {load
                     ? <Loader/>
                     : <ProductGrid products={filterProduct}/>

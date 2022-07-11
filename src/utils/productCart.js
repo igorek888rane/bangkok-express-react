@@ -7,9 +7,7 @@ export const addProduct = (product, cartItem, setCartItem, setShake) => {
     } else {
         setCartItem([...cartItem, {...product, count: 1}])
     }
-    setTimeout(() => {
-        setShake(false)
-    }, 500)
+    setTimeout(() => setShake(false) ,500)
 
 }
 export const getTotalCount = (cartItem) => {

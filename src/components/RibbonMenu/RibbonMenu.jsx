@@ -8,6 +8,7 @@ const RibbonMenu = ({categories, setCategories}) => {
 
     const [positionNav, setPosition] = useState({left: 0, visibleRight: true, visibleLeft: false});
 
+
     const activeClass = (category) => {
         let copyArrayCategories = JSON.parse(JSON.stringify(categories));
         copyArrayCategories.forEach((el) => (el.id === category.id ? (el.active = true) : (el.active = false)));
@@ -21,17 +22,26 @@ const RibbonMenu = ({categories, setCategories}) => {
     const scrollRightNav = () => {
         let copyState = {...positionNav, left: positionNav.left - 265, visibleLeft: true};
         setPosition(copyState);
-        if (copyState.left === -530) {
+
+
+
+        if (copyState.left === -530 ) {
             copyState.visibleRight = false;
         }
+
+
     };
     const scrollLeftNav = () => {
         let copyState = {...positionNav, left: positionNav.left + 265, visibleRight: true};
         setPosition(copyState);
+
+
         if (copyState.left === 0) {
             copyState.visibleLeft = false;
         }
+
     };
+
 
     return (
         <>
@@ -47,7 +57,8 @@ const RibbonMenu = ({categories, setCategories}) => {
                 >
                     <img src={arrow} alt="icon"/>
                 </button>
-                <nav className={style.ribbon__inner} style={{left: `${positionNav.left}px`}}>
+                <nav className={style.ribbon__inner}
+                     style={{left: `${positionNav.left}px`}}>
                     {RibbonEl}
                 </nav>
                 <button
