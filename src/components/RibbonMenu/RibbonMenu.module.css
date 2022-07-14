@@ -8,6 +8,7 @@
     height: 50px;
     overflow: hidden;
     position: relative;
+
 }
 
 .ribbon__inner {
@@ -17,6 +18,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
+
     height: 100%;
     position: absolute;
     transition: all 1s ease
@@ -105,10 +107,11 @@ h2,
 @media all and (max-width: 992px) {
     .ribbon {
         margin-bottom: 0;
-        overflow: scroll;
+        overflow-x: scroll;
     }
 
     .ribbon__item {
+
         font-size: 18px;
         padding: 13px;
     }
